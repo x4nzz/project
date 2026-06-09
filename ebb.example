@@ -1,0 +1,5 @@
+# Copy this file to .env for local development
+# On Railway, set these in the Variables tab
+
+# Server port (Railway sets this automatically)
+PORT=3000
