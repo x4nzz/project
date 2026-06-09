@@ -335,4 +335,3 @@ app.get('*', (_req, res) => {
 app.listen(PORT, () => {
   console.log(`✅  Stripe Key Validator running → http://localhost:${PORT}`);
 });
-
