@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stripe Key Validator</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header__inner">
+        <div class="header__brand">
+          <span class="header__logo">⚡</span>
+          <span class="header__title">Stripe Key Validator</span>
+        </div>
+        <div class="header__meta" id="statusPill">
+          <span class="pill pill--idle">Idle</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+
+      <!-- Input Panel -->
+      <section class="panel panel--input">
+        <div class="panel__header">
+          <h2 class="panel__title">Keys</h2>
+          <div class="panel__actions">
+            <label class="btn btn--ghost btn--sm" for="fileInput">
+              📁 Upload .txt
+            </label>
+            <input type="file" id="fileInput" accept=".txt" hidden />
+            <button class="btn btn--ghost btn--sm" id="clearBtn">Clear</button>
+          </div>
+        </div>
+
+        <textarea
+          class="textarea"
+          id="keyInput"
+          placeholder="Paste Stripe keys here — one per line&#10;&#10;sk_live_...&#10;sk_test_...&#10;rk_live_..."
+          spellcheck="false"
+          autocomplete="off"
+        ></textarea>
+
+        <div class="input-footer">
+          <span class="input-footer__count" id="keyCount">0 keys</span>
+          <span class="input-footer__hint">Supports sk_live, sk_test, rk_live, rk_test</span>
+        </div>
+      </section>
+
+      <!-- Options Panel -->
+      <section class="panel panel--options">
+        <div class="options-grid">
+
+          <div class="option">
+            <label class="toggle">
+              <input type="checkbox" id="stopOnValid" checked />
+              <span class="toggle__track"></span>
+              <span class="toggle__label">Stop on first valid</span>
+            </label>
+          </div>
+
+          <div class="option">
+            <label class="option__label" for="concurrency">Concurrency</label>
+            <div class="stepper">
+              <button class="stepper__btn" id="concDec">−</button>
+              <span class="stepper__val" id="concValue">3</span>
+              <button class="stepper__btn" id="concInc">+</button>
+            </div>
+          </div>
+
+          <div class="option">
+            <label class="toggle">
+              <input type="checkbox" id="liveOnly" />
+              <span class="toggle__track"></span>
+              <span class="toggle__label">Live keys only</span>
+            </label>
+          </div>
+
+        </div>
+
+        <button class="btn btn--primary btn--full" id="runBtn">
+          <span id="runBtnLabel">▶ Run Validator</span>
+        </button>
+      </section>
+
+      <!-- Stats Bar -->
+      <section class="stats" id="statsBar" hidden>
+        <div class="stat stat--valid">
+          <span class="stat__num" id="statValid">0</span>
+          <span class="stat__label">Valid</span>
+        </div>
+        <div class="stat stat--invalid">
+          <span class="stat__num" id="statInvalid">0</span>
+          <span class="stat__label">Invalid</span>
+        </div>
+        <div class="stat stat--error">
+          <span class="stat__num" id="statError">0</span>
+          <span class="stat__label">Error</span>
+        </div>
+        <div class="stat stat--progress">
+          <span class="stat__num" id="statProgress">0%</span>
+          <span class="stat__label">Progress</span>
+        </div>
+      </section>
+
+      <!-- Progress Bar -->
+      <div class="progress-wrap" id="progressWrap" hidden>
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Results Panel -->
+      <section class="panel panel--results" id="resultsPanel" hidden>
+        <div class="panel__header">
+          <h2 class="panel__title">Results</h2>
+          <div class="panel__actions">
+            <button class="btn btn--ghost btn--sm" id="copyValidBtn" hidden>
+              Copy valid keys
+            </button>
+            <button class="btn btn--ghost btn--sm" id="exportBtn" hidden>
+              Export JSON
+            </button>
+            <button class="btn btn--ghost btn--sm" id="clearResultsBtn">
+              Clear
+            </button>
+          </div>
+        </div>
+        <div class="results-list" id="resultsList"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
 
