@@ -1,6 +1,0 @@
-[build]
-  publish = "public"
-  command = "npm start"
-
-[deploy]
-  start_command = "npm start"
