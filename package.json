@@ -1,0 +1,24 @@
+{
+  "name": "stripe-key-validator",
+  "version": "1.0.0",
+  "description": "Bulk Stripe API key validator with real-time SSE streaming results",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["stripe", "api", "key", "validator", "checker"],
+  "license": "MIT"
+}
