@@ -209,9 +209,10 @@ app.post('/api/validate', async (req, res) => {
     return res.status(400).json({ error: 'key (string) is required.' });
   }
 
-  if (key.length > 500) {
-    return res.status(400).json({ error: 'Key value is too long.' });
-  }
+// To this (or just remove the check entirely):
+if(key.length>2000){
+  returnres.status(400).json({error: 'Key value is too long.'});
+}
 
   const result = await validateStripeKey(key);
   res.json(result);
