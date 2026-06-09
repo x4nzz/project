@@ -229,8 +229,8 @@ app.post('/api/validate/bulk', async (req, res) => {
     return res.status(400).json({ error: 'keys (array) is required.' });
   }
 
-  if (keys.length > 2000) {
-    return res.status(400).json({ error: 'Maximum 2 000 keys per request.' });
+  if (keys.length > 5000) {
+    return res.status(400).json({ error: 'Maximum 5 000 keys per request.' });
   }
 
   // Deduplicate and sanitise
